@@ -1,0 +1,16 @@
+.galerie {
+    margin: 0 ;
+    width: 100%;
+}
+.galerie img {
+	margin: 0 ;
+	width: 100%;
+	display: block;
+}
+.galerie .column {
+	padding: 0;
+}
+.galerie .row {
+	width: 100%;
+	margin: 0;
+}
