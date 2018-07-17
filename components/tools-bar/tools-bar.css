@@ -1,0 +1,42 @@
+.tools-bar h1{
+	font-size: 56px;
+	line-height: 66px;
+	margin:0;
+	padding: 60px 0;
+}
+.tools-bar-button{
+	text-align:right;
+}
+.tools-bar .button{
+	font-size:13px;
+	background-color: #2EA1F8;
+	padding: 8px 15px;	
+	height: auto;
+	border: none;
+	margin: 0;
+}
+.tools-bar .row{
+	align-items: center;
+}
+@media(max-width: 768px){
+	.tools-bar-button{
+		text-align: center;
+ 	}
+ 	.tools-bar h1{
+		text-align: center;
+		font-size: 35px;
+		line-height: 45px;
+		margin-bottom:15px;
+	}
+	.tools-bar .row{
+ 	    flex-wrap:wrap; 
+	}
+	.tools-bar .row .column{
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+	.tools-bar .button{
+		padding: 5px 15px;
+	}
+}
+
