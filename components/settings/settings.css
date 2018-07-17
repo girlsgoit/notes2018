@@ -1,12 +1,19 @@
+.settings{
+	margin-bottom: 100px;
+}
+
 .settings input{
 	height: auto;
 }
 .settings textarea{
-	height:calc(100% - 15px);	
+	height:calc(100% - 15px);
 }
 
 .settings textarea, .settings input{
 	margin-bottom: 15px;
+}
+.settings input:focus, .settings textarea:focus{
+	border-color: #DFDFDF;
 }
 
 .settings input, .settings textarea{

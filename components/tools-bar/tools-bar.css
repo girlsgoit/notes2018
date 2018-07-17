@@ -1,8 +1,11 @@
+.tools-bar {
+	padding: 60px 0;
+}
+
 .tools-bar h1{
 	font-size: 56px;
 	line-height: 66px;
 	margin:0;
-	padding: 60px 0;
 }
 .tools-bar-button{
 	text-align:right;
