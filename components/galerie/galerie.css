@@ -1,11 +1,11 @@
 .galerie {
-    margin: 0;
-    width: 100%;
+	margin:0;
+	width:100%;
 }
-.galerie img {
-	margin: 0 ;
-	width: 100%;
-	display: block;
+.galerie img{
+	margin: 0;
+	width: 100%; 
+	display:block;
 }
 .galerie .column {
 	padding: 0;
@@ -14,7 +14,7 @@
 	width: 100%;
 	margin: 0;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1024px){
 	.galerie .row {
 		flex-wrap: wrap;
 	}
@@ -23,9 +23,9 @@
 		max-width: 50%;
 	}
 }
-@media (max-width: 639px) {
-	.galerie .column {
+@media (max-width: 639px){
+    .galerie .column {
 		flex: 0 0 100%;
 		max-width: 100%;
-	}
+    }
 }

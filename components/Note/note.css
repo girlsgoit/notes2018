@@ -1,0 +1,83 @@
+
+.note {
+	color:#393939; 
+	font-size: 21px;
+	font-family: georgia;
+	line-height: 1.71;
+	padding: 80px 0;
+}
+
+.note ul li {
+	list-style-type: disc;
+}
+
+.note h1{
+	line-height: 1.15;
+	font-size: 56px;	
+}
+.note h2{
+	font-size: 32px;
+	line-height: 1.125;
+}
+
+.note h3{
+	font-size: 26px;
+	line-height: 1.15;
+}
+.note-image{
+	margin: 50px -40px;
+}
+
+.note a{
+	color: #208AFA;
+	display: inline-block;
+}
+
+.note h1, .note p, .note h2, .note h3, .note ul, .note a{
+	margin-bottom: 40px;
+	
+}
+
+@media (max-width: 1024px){
+	.note{
+		font-size: 18px;
+		line-height: 30px;
+	}
+	.note h1{
+		font-size: 50px;
+	}
+	.note h2{
+		font-size: 42px;
+	}
+	.note h3{
+		font-size: 37px;
+	}
+	.note-image{
+		margin:50px -15px;
+	}
+	.note a {
+		margin-bottom: 40px;
+	}
+}
+@media (max-width: 500px){
+	.note{
+		font-size: 16px;
+	}
+	.note h1{
+		font-size: 45px;
+	}
+	.note h2{
+		font-size: 30px;
+	}
+	.note h3{
+		font-size: 24px;
+	}
+	.note-image{
+		margin:50px -15px;
+	}
+	.note a {
+		margin-bottom: 20px;
+	}
+}
+
+
