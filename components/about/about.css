@@ -1,0 +1,36 @@
+.about h2{
+	font-weight: bold;
+	line-height: 53px;
+	color: black;
+	text-align: center;
+	padding-top: 120px;
+}
+.about p{
+	font-weight: normal;
+	line-height: 28px;
+	color: #6A6A6A;
+	text-align: center;
+}
+.about-notes{
+	max-width: 719px;
+	margin: 0 auto;
+}
+@media ( max-width: 600px){
+	.about h2 {
+		line-height: 30px;
+		font-size: 30px;
+	}
+	.about p {
+		line-height: 16px;
+		font-size: 16px;
+		width: 100%;
+	}
+}
+.about {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+
+
+
