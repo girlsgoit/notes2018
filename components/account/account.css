@@ -39,6 +39,7 @@ html {
 .account .button {
 	background-color: #278df6;
 	border: none;
+	transition: background-color 0.25s ease-in;
 }
 
 .account .button:hover {
@@ -49,6 +50,7 @@ html {
 	width: 230px;
 	display: block;
 }
+
 
 .account-content input:hover,
 .account-content input:focus{
