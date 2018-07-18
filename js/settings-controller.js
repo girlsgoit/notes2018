@@ -8,25 +8,16 @@ function modifySettings(first_name, last_name, password, css) {
         theme: css
     };
 
-    let id = localStorage.getItem('id');
-    let firstname = localStorage.getItem('first_name');
-    let lastname = localStorage.getItem('last_name');
-    let theme = localStorage.getItem('css');
-  
-    const requestModification = {
-        url: `http://192.168.2.13:3000/users/${id}/`,
-        type: 'PUT',
-        contentType: 'application/json',
-        success: responseSettings,
-        data: JSON.stringify(modifyObject)
-    };
-
-    $.ajax(requestModification);
+    const id = URL.getQueryParam('id');
+    API.put(`users/${id}/`, JSON.stringify(modifyObject), handleResponse)
 }
 
-function responseSettings(data, status) {
+function handleResponse(response) {
+    if (response.status === 200) {
+        const user = response.responseJSON;
 
-    if (data.status === 200) {
-        console.log("tot ok, saved");
+        localStorage.setItem('firstName', user.firstName);
+        localStorage.setItem('lastName', user.lastName);
+        localStorage.setItem('css', user.settings);
     }
-    }
+}
