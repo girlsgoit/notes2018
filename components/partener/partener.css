@@ -1,0 +1,28 @@
+.partner {
+	text-align:center;
+	color:black;
+	margin-right:30px;
+	margin-left:30px;
+	padding-bottom:80px;
+	
+}
+
+.partner h2{
+	font-weight:normal;
+	font-size:40px;
+	padding-top:80px;
+}
+.partner p{
+	color:black;
+	font-size:15px;
+	font-style:normal;
+	text-align: center;
+	padding-bottom:50px;
+}
+
+.partner img{
+	height:120px;
+	width:120px;
+}
+
+
