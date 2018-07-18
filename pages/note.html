@@ -51,111 +51,21 @@
 	</header>
 	<div class="container ">
 		<div class="note-wrapper">
-			<div class="note-cursor note-cursor-first"></div>
-			<article class="note">
-				<div class="note-element">
-					<h1>You have a nice heart</h1>
-					<div class="note-cursor note-cursor-active"></div>
-					<span class="note-element-delete"><i class="fas fa-times"></i></span>
-				</div>
-				<div class="note-element">
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-					</p>
-					<span class="note-cursor"></span>
-					<span class="note-element-delete"><i class="fas fa-times"></i></span>
-				</div> 
-				<div class="note-image note-element">
-					<img src="https://images.unsplash.com/uploads/141310026617203b5980d/c86b8baa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0c6219ffef488c603aa7c2a1b3448f4c&auto=format&fit=crop&w=1404&q=80">
-					<span class="note-cursor"></span>
-					<span class="note-element-delete"><i class="fas fa-times"></i></span>
-				</div>
-
-				<div class="note-element">
-					<h2>	
-						You have a nice heart
-					</h2>
-					<span class="note-cursor"></span>
-					<span class="note-element-delete"><i class="fas fa-times"></i></span>
-				</div>
-				<div class="note-element">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</p>
-					<span class="note-cursor"></span>
-					<span class="note-element-delete"><i class="fas fa-times"></i></span>
-				</div>
-				<div class="note-element">
-					<a href="#">HTML</a>
-					<span class="note-cursor"></span>
-					<span class="note-element-delete"><i class="fas fa-times"></i></span>
-				</div>
-				<div class="note-element">
-					<a href="#">CSS Basics</a>
-					<span class="note-cursor"></span>
-					<span class="note-element-delete"><i class="fas fa-times"></i></span>
-				</div>
-				<div class="note-element">
-					<a href="#">CSS Advanced</a>
-					<span class="note-cursor"></span>
-					<span class="note-element-delete"><i class="fas fa-times"></i></span>
-				</div>
-
-				<div class="note-element">
-					<ul>
-						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-					
-						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-					
-						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-					
-						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-					
-						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-					</ul>
-					<span class="note-cursor"></span>
-					<span class="note-element-delete"><i class="fas fa-times"></i></span>
-				</div>
-
-				<div class="note-element">
-					<h3>You have a nice heart</h3>
-
-					<span class="note-cursor"></span>
-					<span class="note-element-delete"><i class="fas fa-times"></i></span>
-				</div>
-				<div class="note-element">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					<span class="note-cursor"></span>
-					<span class="note-element-delete"><i class="fas fa-times"></i></span>
-				</div>
-			</article>
+			<div id="first-cursor" class="note-cursor note-cursor-first js-note-cursor"></div>
+			<article id="note" class="note"></article>
 			<div class="note-tools">
 				<div class="note-delete">
 					<a href="#" class="button">Delete this note</a>
 				</div>
-				<div class="note-add note-add-opened">
-					<textarea name="" resize="no-resize" placeholder="Write your text here"></textarea>
-					<a class="button" href="#">H1</a>
-					<a class="button" href="#">H2</a>
-					<a class="button" href="#">H3</a>
-					<a class="button" href="#">P</a>
-					<a class="button" href="#">UL</a>
-					<a class="button" href="#">LINK</a>
-					<a class="button" href="#">IMAGE</a>
+				<div id="note-add" class="note-add">
+					<textarea name="" resize="no-resize" id="add-element-content" placeholder="Write your text here"></textarea>
+					<button class="h1" onclick="insertElement('h1')" >h1</button>
+					<button class="h2" onclick="insertElement('h2')" >h2</button>
+					<button class="h3" onclick="insertElement('h3')">h3</button>
+					<button class="img" onclick="insertElement('img')">img</button>
+					<button class="p" onclick="insertElement('p')"> p</button>
+					<button class="ul" onclick="insertElement('ul')">ul</button>
+					<button class="link" onclick="insertElement('a')">link</button>
 				</div>
 			</div>
 		</div>
@@ -172,6 +82,11 @@
 				<li><a href="#">Instagram</a></li>
 			</ul>
 		</div>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="../js/note-controller.js"></script>
+		<script src="../js/note-view.js"></script>
+
 	</footer>
 </body>
 </html>
