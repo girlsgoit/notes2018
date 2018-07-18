@@ -74,8 +74,41 @@ const AJAX = {
     }
 };
 
+const User = {
+    LS_KEY: 'authUser',
+    authUser: null,
+    saveUser: (user) => {
+        localStorage.setItem(this.LS_KEY, JSON.stringify(user));
+    },
+    loadUser: () => {
+        this.authUser = JSON.parse(localStorage.getItem(this.LS_KEY));
+    },
+};
+
+const HeaderControls = {
+    fillName: () => {
+        if (User.authUser) {
+            $('#full-name').text(`${User.authUser.firstName} ${User.authUser.lastName}`)
+        }
+    },
+    bindLogout: () => {
+        $('#logout').on('click', (e) => {
+            e.preventDefault();
+            API.post('auth/logout', null, (response) => {
+                $(location).attr('href', 'signin.html');
+            })
+        })
+    },
+    bindAll: () => {
+        this.fillName();
+        this.bindLogout();
+    }
+};
+
 
 // EXECUTE
 
-// Setup csrf header on each non-safe http method call
 AJAX.setupCsrf();
+User.loadUser();
+
+HeaderControls.bindAll();
