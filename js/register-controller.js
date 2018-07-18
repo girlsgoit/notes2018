@@ -7,6 +7,7 @@ function register(firstname, lastname, username, password) {
     };
 
     API.post('users/register/', user, handleResponse);
+
 }
 
 function handleResponse(xhr, status, data) {
@@ -15,7 +16,6 @@ function handleResponse(xhr, status, data) {
     } else {
         $('.validation-error').text('something went wrong');
     }
-
 }
 
 function verifyIfUnique() {

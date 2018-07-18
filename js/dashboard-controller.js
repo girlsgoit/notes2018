@@ -6,7 +6,7 @@ function handleResponse(response) {
         notes = response.responseJSON;
         populatePage();
     } else {
-        $(location).attr('href', '404.html');
+        console.log(response.responseJSON)
     }
 }
 
