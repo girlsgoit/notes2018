@@ -70,3 +70,11 @@
 	margin-bottom: 80px;
 }
 
+.notes:empty:after {
+	content: "You don't have any notes. To add a note, click the button on the right of the page and become more productive.";
+	display: block;
+	text-align: center;
+	padding: 20px;
+	font-size: 20px;
+	color: #898989;
+}
