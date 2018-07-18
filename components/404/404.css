@@ -1,0 +1,60 @@
+.error h1 {
+	text-align: center;
+	font-weight: bold;
+	font-family: hanconck;
+	font-style: oblique;
+	font-size: 56px;
+	color: #278DF6;
+	line-height: 50px;
+	margin-bottom: 0;
+	padding: 150px 0 0 0;
+}
+.error h2 {
+	text-align: center;
+	font-weight: bold;
+	font-family: hanconck;
+	font-style: oblique;
+	color: #278DF6;
+	line-height: 60px;
+	padding: 0 0 12px 0;
+	margin-bottom: 0;
+}	
+.error h4 {
+	text-align: center;
+	font-weight: bold;
+	font-family: hanconck;
+	color: #278DF6;
+	font-style: oblique;
+	line-height: 32px;
+	margin: 0 0 0 0;
+}
+.error h5{
+	text-align: center;
+	font-weight: bold;
+	font-family: hanconck;
+	font-style: oblique;
+	color: #278DF6;
+	line-height: 40px;
+	padding: 0 0 0 0;
+	margin-bottom: 0;
+	font-style: oblique;
+	margin: 0 0 0 0; 
+}
+.error a {
+	font-style: oblique;
+	font-family: hanconck;
+	font-weight: bold;
+	color: #278DF6
+	right: 80px;
+}
+.error .button {
+	background-color: #e7e7e7;
+	font-family: hanconck;
+	font-size: 16px;
+	color: #278DF6;
+    border: none;
+    padding: 0 0 0 0;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;	
+}

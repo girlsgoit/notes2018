@@ -1,0 +1,65 @@
+
+.card {
+	margin-bottom: 20px;
+	box-shadow: 0px 2px 27px rgba(230,230,230,0.5);
+	border-radius: 10px;
+	overflow: hidden;
+	color: #393939;
+	font-family: Georgia;
+	text-align: left;
+	padding: 30px;
+}
+
+.card p {
+	font-size: 16px;
+	margin: 0;
+}
+
+.card h1 {
+	font-size: 36px;
+	margin: 0;
+}
+
+.card h2 {
+	font-size: 28px;
+	margin: 0;
+}
+
+.card h3 {
+    font-size: 24px;
+	margin: 0;
+}
+
+.card img {
+	width: 100%;
+}
+
+.card ul {
+	font-size: 21px;
+	margin: 0;
+}
+
+.card.card-image {
+	padding: 0;
+}
+
+.card.card-image .card-date {
+	padding: 30px;
+}
+
+.card-date {
+    color: #919191;
+	font-family: Roboto;
+	font-size: 16px;
+	text-align: right;
+	padding-top:30px;
+}
+
+.card h2 a {
+	font-size:36px;
+	color:#278DF6;
+	line-height:30PX;
+}
+.notes {
+	margin-bottom: 80px;
+}
