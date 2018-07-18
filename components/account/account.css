@@ -50,9 +50,14 @@ html {
 	width: 230px;
 	display: block;
 }
-
-
 .account-content input:hover,
 .account-content input:focus{
 	border-color: #278df6;
+}
+.validation-error {
+	color:#fa4820;
+	display: none;
+}
+.validation-error.visible{
+	display: block;
 }
