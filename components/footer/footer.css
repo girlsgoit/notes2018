@@ -23,7 +23,10 @@
 .footer p a{
 	color: #208AFA;
 }
-
 .footer ul a {
 	color: #898989;
+	transition: color .25s ease;
+}
+.footer ul a:hover{
+	color: #208AFA;
 }
