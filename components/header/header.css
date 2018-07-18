@@ -11,7 +11,10 @@
 	display: inline-block;
 	margin: 0 15px;
 	margin-bottom: 0;
+	
+
 }
+
 
 .header a {
 	color: #393939;
@@ -41,6 +44,7 @@
 	display: block;
 	text-align: right;
 	line-height: 21px;
+
 }
 
 @media screen and (max-width: 845px) {
@@ -64,4 +68,14 @@
 		display: block;
 		text-align: center;
 	}
+
+
+} 
+
+.header  a{
+	transition: color 0.25s ease;
+
+}
+.header a:hover{
+  color: #2EA1F8;
 }
