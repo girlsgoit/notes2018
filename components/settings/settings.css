@@ -1,0 +1,57 @@
+.settings{
+	margin-bottom: 100px;
+}
+
+.settings input{
+	height: auto;
+}
+.settings textarea{
+	height:calc(100% - 15px);
+}
+
+.settings textarea, .settings input{
+	margin-bottom: 15px;
+}
+.settings input:focus, .settings textarea:focus{
+	border-color: #DFDFDF;
+}
+
+.settings input, .settings textarea{
+	color: #a9a9a9;
+	font-family: Roboto;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	padding: 15px 15px;
+}
+
+@media only screen and (max-width: 950px){
+
+	.settings .row .column{
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: 50%;
+		max-width: 100%;
+	}
+}
+
+@media only screen and (max-width:639px){
+	.settings textarea{
+		min-height: 300px;
+	}
+}
+
+
+
+@media only screen and (max-width: 450px){
+	.settings .row{
+		flex-wrap: wrap;
+	}
+
+	.settings .row .column{
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: 100%;
+		max-width: 100%;
+	}
+}
