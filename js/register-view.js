@@ -15,15 +15,13 @@ function readInput() {
     }
 }
 
-
-
-
 $('#username').focus(handleFocus);
 
 function handleFocus() {
     console.log('lucreaza');
-    $('.validation-error').removeClass('visible');
-    $('.validation-error').empty();
+    const errorField = $('.validation-error');
+    errorField.removeClass('visible');
+    errorField.empty();
 }
 
 $('#login').click(showLoginPage);
