@@ -106,7 +106,6 @@
 	font-size: 20px;
 	color: #bbb;
 	text-align: center;
-	cursor: pointer;
 }
 
 .note-add {
@@ -143,15 +142,15 @@
 	border-color: #aaa;
 }
 
-.note-add a {
+.note-add button {
 	margin-right: 10px;
 	margin-bottom: 0;
 	background-color: #208AFA;
 	border-color: #208AFA;
 }
 
-.note-add a:focus, 
-.note-add a:hover {
+.note-add button:focus, 
+.note-add button:hover {
 	background-color: #1d7bde;
 	border-color: #1d7bde;
 }
