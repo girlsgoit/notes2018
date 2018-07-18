@@ -1,0 +1,56 @@
+
+html {
+	height: 100%;
+}
+
+.account {
+	text-align: center;
+	align-items: center;
+	display: flex;
+	min-height: 100%;
+	background-color:#eff3f6;
+}
+
+.account .button {
+	margin-bottom: 20px;
+}
+
+.account a {
+	color: #278df6;
+}
+
+.account form {
+	margin: 0;
+}
+
+.account img {
+	margin-bottom: 20px;
+}
+
+.account-content {
+	background-color: #ffffff;
+	padding: 45px;
+	border-radius: 5px;
+	text-align: center;
+	box-shadow: 0px 2px 27px 0 rgba(230, 230, 230, 0.5);   
+	display: inline-block;
+}
+
+.account .button {
+	background-color: #278df6;
+	border: none;
+}
+
+.account .button:hover {
+	background-color: #2378d0;
+}
+
+.account-content input {
+	width: 230px;
+	display: block;
+}
+
+.account-content input:hover,
+.account-content input:focus{
+	border-color: #278df6;
+}
