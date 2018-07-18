@@ -284,9 +284,9 @@
 	to { opacity: 1 }
 }
 div.note-undo{
-	display: none;
+	display: block;
 	position: fixed;
-	top: 30px;
+	top: 0;
 	z-index:99;
 	border-radius: 7px;
 	background-color: white;
@@ -294,16 +294,16 @@ div.note-undo{
 	left: 50%;
 	text-align: center;
 	box-shadow: 0 -2px 40px 0px rgba(191, 191, 191, 0.5);
-	transform: translateX(-50% ) translateY(-10px);
+	transform: translateX(-50% ) translateY(-100%);
 	opacity: 0;
 	transition: opacity .25s ease, transform .25s ease;
-
+    
 }
 .note-undo a{
 	color: #208AFA
 }
 div.note-undo.visible{
-	display: block;
 	opacity: 1;
-	transform: translateY(0) translateX(-50%);
+	transform: translateY(30px) translateX(-50%);
+
 }
