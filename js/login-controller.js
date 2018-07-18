@@ -5,7 +5,7 @@ function handleLoginResponse(response) {
         localStorage.setItem('authUser', JSON.stringify(data));
         $(location).attr('href', 'dashboard.html');
     } else {
-        console.log(data.message);
+        console.log(data);
     }
 
 }

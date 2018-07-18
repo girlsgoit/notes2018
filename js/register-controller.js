@@ -1,4 +1,3 @@
-
 function register(firstname, lastname, username, password) {
     let user = {
         username: username,
@@ -13,7 +12,6 @@ function register(firstname, lastname, username, password) {
         data: JSON.stringify(user),
         complete: handleResponse,
         contentType: 'application/json'
-
     };
 
     $.ajax(requestObject);
@@ -25,9 +23,7 @@ function handleResponse(data, status) {
     } else {
         $('.validation-error').text('something went wrong');
     }
-
 }
-
 
 function verifyIfUnique() {
     let username = $('#username').val();
@@ -49,11 +45,9 @@ function verifyIfUnique() {
 
 function handleIsUniqueResponse(data, status) {
     if (data.status === 200) {
-        //totul ii bine 
+        // OK 
     } else if (data.status === 400) {
         $('.validation-error').addClass('visible');
         $('.validation-error').append('username is already used!');
-        // ceva ne to - de pus in console.log
     };
-
 }
