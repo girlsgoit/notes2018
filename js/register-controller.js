@@ -14,7 +14,9 @@ function handleResponse(xhr, status, data) {
     if (xhr.status === 200) {
         $(location).attr('href','signin.html');
     } else {
-        $('.validation-error').text('something went wrong');
+        const errorField = $('.validation-error');
+        errorField.addClass('visible');
+        errorField.text('something went wrong');
     }
 }
 
@@ -29,12 +31,9 @@ function verifyIfUnique() {
 }
 
 function handleIsUniqueResponse(xhr, status, data) {
-    if (xhr.status === 200) {
-        //totul ii bine
-    } else if (xhr.status === 400) {
+    if (xhr.status === 400) {
         const errorField = $('.validation-error');
         errorField.addClass('visible');
-        errorField.append('username is already used!');
-        // ceva ne to - de pus in console.log
+        errorField.text('username is already used!');
     }
 }
