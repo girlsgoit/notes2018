@@ -1,10 +1,26 @@
+.note-wrapper {
+	margin: 80px 0;
+	position: relative;
+}
 
 .note {
 	color:#393939; 
 	font-size: 21px;
 	font-family: georgia;
 	line-height: 1.71;
-	padding: 80px 0;
+	margin-bottom: 40px;
+	position: relative;
+}
+
+.note-element {
+	position: relative;
+	margin-bottom: 40px;
+}
+
+.note-element:after {
+	content: '';
+	display: block;
+	clear: both;
 }
 
 .note ul li {
@@ -31,11 +47,6 @@
 .note a{
 	color: #208AFA;
 	display: inline-block;
-}
-
-.note h1, .note p, .note h2, .note h3, .note ul, .note a{
-	margin-bottom: 40px;
-	
 }
 
 @media (max-width: 1180px) {
@@ -86,3 +97,187 @@
 }
 
 
+.note:empty:after {
+	content: "It's empty, add some content.";
+	display: block;
+	font-family: Roboto;
+	padding: 20px;
+	font-size: 20px;
+	color: #bbb;
+	text-align: center;
+	cursor: pointer;
+}
+
+.note-add {
+	position: fixed;
+	z-index: 99;
+	border-radius: 7px;
+	background-color: white;
+	padding: 30px;
+	max-width: 720px;
+	left: 50%;
+	bottom: 30px;
+	margin-left: -360px;
+	text-align: center;
+	box-shadow: 0 -2px 40px 0px rgba(191, 191, 191, 0.5);
+	transform: translateY(300px);
+	transition: transform 0.3s ease;
+}
+
+.note-add.note-add-opened {
+	transform: translateY(0);
+}
+
+.note-add textarea {
+	display: block;
+	max-width: 100%;
+	min-width: 100%;
+	min-height: 100px;
+	resize: none;
+	border: transparent;
+	padding: 0;
+}
+
+.note-add textarea:focus {
+	border-color: #aaa;
+}
+
+.note-add a {
+	margin-right: 10px;
+	margin-bottom: 0;
+	background-color: #208AFA;
+	border-color: #208AFA;
+}
+
+.note-add a:focus, 
+.note-add a:hover {
+	background-color: #1d7bde;
+	border-color: #1d7bde;
+}
+
+.note-add a:last-child {
+	margin-right: 0;
+}
+
+.note-delete a {
+	width: 100%;
+	background-color: transparent;
+	border: 1px solid #fa4820;
+	color: #fa4820;
+	padding: 15px;
+	height: auto;
+}
+
+.note-delete a:hover,
+.note-delete a:focus,
+.note-delete a:active {
+	background: #fa4820;
+	border: 1px solid #e43f1a;
+}
+
+.note-cursor {
+	display: block;
+	opacity: 0;
+	position: absolute;
+	width: 100%;
+	z-index: 20;
+	height: 35px;
+	bottom: -35px;
+	cursor: pointer;
+	transition: opacity 0.25s ease;
+}
+
+.note-cursor.note-cursor-first {
+	top: -40px;
+}
+
+.note-cursor:after {
+	content: '';
+	display: block;
+	height: 2px;
+	margin-top: 1px;
+	width: 100%;
+	right: 0;
+	background-color: #208AFA;
+	position: absolute;
+	top: 50%;
+	border-radius: 1px;
+	opacity: 0.4;
+}
+
+.note-cursor.note-cursor-active {
+	opacity: 1;
+}
+
+.note-cursor.note-cursor-active:before {
+	display: none;
+}
+
+.note-cursor.note-cursor-active:after {
+	animation: pulse infinite alternate 0.8s linear;
+	background-color: orange;
+}
+
+.note-cursor:before {
+	content: '+';
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	line-height: 27px;
+	border-radius: 50%;
+	border: 1px solid #208AFA;
+	text-align: center;
+	color: #208AFA;
+	font-weight: bold;
+	background-color: white;
+	transition: color 0.3s ease, background-color 0.3s ease;
+	left: 50%;
+	margin-left: -15px;
+	position: absolute;
+	background-color: white;
+	z-index: 20;
+	box-shadow: 0 0 0px 10px white;
+	top: 5px;
+}
+
+.note-cursor a:hover {
+	color: white;
+	background-color: #208AFA;
+
+}
+
+.note-cursor:hover {
+	opacity: 1;
+}
+
+.note-element:hover .note-element-delete {
+	opacity: 1;
+}
+
+.note-element-delete {
+	display: inline-block;
+	opacity: 0;
+	top: 50%;
+	margin-top: -15px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 50%;
+	border: 1px solid #fa4820;
+	text-align: center;
+	color: #fa4820;
+	transition: opacity 0.3s ease;
+	right: 0;
+	position: absolute;
+	background-color: white;
+	z-index: 20;
+	box-shadow: 0 0 0px 15px white;
+	font-size: 12px;
+	cursor: pointer;
+	
+}
+
+@keyframes pulse {
+	from { opacity: 0.1 }
+    to { opacity: 1 }
+}
