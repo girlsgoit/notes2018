@@ -1,5 +1,5 @@
 const API = {
-    BASE_URL: '//localhost:3000/',
+    BASE_URL: '//localhost:8000/',
 
     get: function (path, completeCallback) {
         return $.ajax({
