@@ -2,7 +2,7 @@
 	text-align: center;
 	color: black;
 	background-color: #fafafa;
-	padding: 60px 0;
+	padding: 130px 0;
 	font-family: Roboto;
 
 }
@@ -14,6 +14,7 @@
     font-stretch: normal;
     font-style: normal;
     margin-bottom: 35px;
+   
 }
 
 .boxes h2 {
@@ -33,9 +34,18 @@
 }
 
 .boxes .features{
-	padding-bottom: 50px;
+	padding-bottom: 75px;
 }
 
 .boxes h4{
     margin:10px;
-   }
+}
+
+.boxes i {
+    transition: transform 0.25s ease; 
+}
+
+.boxes .column:hover i {
+    transform: translateY(10px);
+} 
+

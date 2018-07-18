@@ -4,6 +4,7 @@
 	width: 100%;
 	position: relative;
 	color: #898989;
+	margin-top: 5px, #898989; 
 }
 .footer li{
 	word-spacing: 50px;
@@ -19,11 +20,15 @@
 	text-align: center;
 	background-color: #F9F9F9;
 	padding:60px 0;
+
 }
 .footer p a{
 	color: #208AFA;
 }
-
 .footer ul a {
 	color: #898989;
+	transition: color .25s ease;
+}
+.footer ul a:hover{
+	color: #208AFA;
 }

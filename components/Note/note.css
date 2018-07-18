@@ -29,8 +29,9 @@
 
 .note h1{
 	line-height: 1.15;
-	font-size: 56px;	
+	font-size: 56px;
 }
+
 .note h2{
 	font-size: 32px;
 	line-height: 1.125;
@@ -165,6 +166,7 @@
 	color: #fa4820;
 	padding: 15px;
 	height: auto;
+	transition: background-color .5s ease;
 }
 
 .note-delete a:hover,
@@ -278,5 +280,29 @@
 
 @keyframes pulse {
 	from { opacity: 0.1 }
-    to { opacity: 1 }
+	to { opacity: 1 }
+}
+div.note-undo{
+	display: block;
+	position: fixed;
+	top: 0;
+	z-index:99;
+	border-radius: 7px;
+	background-color: white;
+	padding: 30px;
+	left: 50%;
+	text-align: center;
+	box-shadow: 0 -2px 40px 0px rgba(191, 191, 191, 0.5);
+	transform: translateX(-50% ) translateY(-100%);
+	opacity: 0;
+	transition: opacity .25s ease, transform .25s ease;
+    
+}
+.note-undo a{
+	color: #208AFA
+}
+div.note-undo.visible{
+	opacity: 1;
+	transform: translateY(30px) translateX(-50%);
+
 }

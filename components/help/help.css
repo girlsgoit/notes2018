@@ -1,0 +1,15 @@
+.help-note {
+	padding: 70px 0;
+}
+.help-note span {
+	background-color: #d2e8ff;
+    color: #278df6;
+	padding: 5px;
+	border-radius: 3px;
+	font-family: "Lucida Console", Monaco, monospace;
+}
+.help-note h2{
+	text-align: left;
+	color: black;
+	padding-bottom: 10px;
+}
