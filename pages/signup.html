@@ -14,18 +14,24 @@
 <body class="account">
 	<div class="container">
 		<div class="account-content">
-			<img src="../img/NotesNormal.svg">
+			<img src="../img/LogoNormal.svg">
+			<p class="validation-error"></p>
 			<form action="#">
 				<div class="inputs-login">
-					<input type="text" placeholder="Email" id="nameField">
-					<input type="text" placeholder="Full Name" id="nameField">
-					<input type="password" placeholder="Password" id="nameField">
-					<input type="password" placeholder="Confirm Password" id="nameField">
+					<input type="text" placeholder="Username" id="username" onfocusout="verifyIfUnique()">
+					<input type="text" placeholder="First Name" id="first-name">
+					<input type="text" placeholder="Last Name" id="last-name">
+					<input type="password" placeholder="Password" id="password">
+					<input type="password" placeholder="Confirm Password" id="confirm-password">
 				</div>
-				<input type="submit" value="Register" class="button">
-				<a href="#">Login</a>
+				<input type="submit" value="Register" class="button" id="register">
+				<a href="#" id="login">Login</a>
 			</form>
 		</div>
 	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../js/register-controller.js"></script>
+    <script src="../js/register-view.js"></script>
 </body>
 </html>
