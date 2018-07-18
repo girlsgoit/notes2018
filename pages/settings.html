@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Settings</title>
@@ -11,6 +12,7 @@
 	<link rel="stylesheet" href="../css/style.css">
 
 </head>
+
 <body>
 	<header class="header">
 		<div class="container">
@@ -22,7 +24,7 @@
 				</div>
 				<div class="column">
 					<a href="#" class="logo">
-						<img src="../components/img/LogoNormal.svg">
+						<img src="../img/LogoNormal.svg">
 					</a>
 				</div>
 				<div class="column">
@@ -56,13 +58,13 @@
 			<div class="row">
 				<div class="column">
 					<h1>
-						Settings 
+						Settings
 					</h1>
-				</div>	
+				</div>
 				<div class="column">
-					<div class="tools-bar-button" >
-						<a class="button">Save Settings</a>
-					</div>	
+					<div class="tools-bar-button">
+						<a class="button" id="save-settings">Save Settings</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -73,17 +75,20 @@
 		<div class="container">
 			<div class="row">
 				<div class="column column-33">
-					<input type="text" placeholder="Full Name">
-					<input type="Password" placeholder="Old Password">
-					<input type="Password" placeholder="New Password">
-					<input type="Password" placeholder="Confirm Password">
-				</div>	
+					<input type="text" placeholder="First Name" id="firstname-input">
+					<input type="text" placeholder="Last Name" id="lastname-input">
+					<input type="Password" placeholder="Old Password" id="oldpassword-input">
+					<input type="Password" placeholder="New Password" id="newpassword-input">
+					<input type="Password" placeholder="Confirm Password" id="confirmpassword-input">
+				</div>
 				<div class="column column-67">
-					<textarea placeholder="Custom theme"></textarea>
+					<textarea placeholder="Custom theme" id="customtheme-input"></textarea>
 				</div>
 			</div>
-		</div>   	
-	</section>	
+		</div>
+	</section>
+	<script>
+	</script>
 
 
 	<footer class="footer">
@@ -93,16 +98,22 @@
 				<a href="https://www.google.com">GirlsGoIT Summer STEM Camp </a>
 			</p>
 			<ul>
-				<li><a href="#">Facebook</a></li>
-				<li><a href="#">YouTube</a></li>
-				<li><a href="#">Instagram</a></li>
+				<li>
+					<a href="#">Facebook</a>
+				</li>
+				<li>
+					<a href="#">YouTube</a>
+				</li>
+				<li>
+					<a href="#">Instagram</a>
+				</li>
 			</ul>
 		</div>
 	</footer>
-
-	<!-- Scripts -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="../js/core.js"></script>
-
+	<script src="../js/settings-controller.js"></script>
+	<script src="../js/settings-view.js"></script>
 </body>
+
 </html>

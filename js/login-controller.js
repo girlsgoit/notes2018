@@ -18,3 +18,13 @@ function login(text, password) {
 
     API.post('auth/login/', user, handleLoginResponse);
 }
+
+function deleteNote(id){
+    const requestObjectDelete = {
+        url: `http://192.168.2.13:3000/${notes.id}`,
+        type: 'DELETE',
+        success: handleResponse,
+        contentType: 'application/json'
+     };
+     $.ajax(requestObjectDelete);
+}
