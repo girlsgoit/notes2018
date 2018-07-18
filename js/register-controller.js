@@ -7,7 +7,6 @@ function register(firstname, lastname, username, password) {
     };
 
     API.post('users/register/', user, handleResponse);
-
 }
 
 function handleResponse(xhr, status, data) {
