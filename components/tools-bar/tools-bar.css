@@ -17,9 +17,13 @@
 	height: auto;
 	border: none;
 	margin: 0;
+	transition: background-color .25s ease;
 }
 .tools-bar .row{
 	align-items: center;
+}
+.tools-bar .button:hover {
+	background-color: #0781df;
 }
 @media(max-width: 768px){
 	.tools-bar-button{
