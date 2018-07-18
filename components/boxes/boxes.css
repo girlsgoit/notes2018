@@ -2,7 +2,6 @@
 	text-align: center;
 	color: black;
 	background-color: #fafafa;
-	padding: 60px 0;
 	font-family: Roboto;
 
 }
@@ -34,14 +33,11 @@
 }
 
 .boxes .features{
-	padding-bottom: 50px;
+	padding-bottom: 75px;
 }
 
 .boxes h4{
     margin:10px;
-   }
-.boxes p.features {
-    padding-bottom: 75px;
 }
 section.boxes {
     padding: 130px 0;

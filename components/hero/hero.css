@@ -1,9 +1,15 @@
 .hero{
-	background-image:  url("https://picsum.photos/200/300/?random");
+	background-image:  url("../img/600.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-position: center center;
 	padding: 130px 0 130px 0;
-	position: relative;	
+	position: relative;
+	transition: background-position  10s linear;
+}
+
+.hero:hover {
+	background-position: center -50px;
 }
 .hero-overlay{
 	height:100%;
@@ -21,7 +27,7 @@
 	color:#ffffff;
 	font-weight: bold;	
 	line-height: 67px;
-	font-size: 56px;		
+	font-size: 56px;
 }
 .hero-text {
 	text-align: center;
@@ -36,4 +42,3 @@
 	font-size: 24px;
 	font-weight: lighter;  
 }
- 
