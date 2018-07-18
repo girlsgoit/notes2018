@@ -8,6 +8,12 @@
 	font-family: Georgia;
 	text-align: left;
 	padding: 30px;
+	transition: box-shadow 0.25s ease;
+	display: block;
+}
+.card:hover {
+	box-shadow: none;
+
 }
 
 .card p {
@@ -55,7 +61,7 @@
 	padding-top:30px;
 }
 
-.card h2 a {
+.card span {
 	font-size:36px;
 	color:#278DF6;
 	line-height:30PX;
@@ -63,3 +69,4 @@
 .notes {
 	margin-bottom: 80px;
 }
+
