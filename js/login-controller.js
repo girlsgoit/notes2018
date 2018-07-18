@@ -1,4 +1,5 @@
-function handleLoginResponse(response) {
+function handleLoginResponse(response, status, data1) {
+    console.log(data1);
     const data = response.responseJSON;
 
     if (response.status === 200) {
@@ -7,7 +8,6 @@ function handleLoginResponse(response) {
     } else {
         console.log(data);
     }
-
 }
 
 function login(text, password) {
@@ -17,14 +17,4 @@ function login(text, password) {
     };
 
     API.post('auth/login/', user, handleLoginResponse);
-}
-
-function deleteNote(id){
-    const requestObjectDelete = {
-        url: `http://192.168.2.13:3000/${notes.id}`,
-        type: 'DELETE',
-        success: handleResponse,
-        contentType: 'application/json'
-     };
-     $.ajax(requestObjectDelete);
 }
