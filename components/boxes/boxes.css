@@ -39,3 +39,13 @@
 .boxes h4{
     margin:10px;
    }
+
+.boxes i {
+    transition: transform 0.25s ease; 
+
+}
+
+.boxes .column:hover i {
+    transform: translateY(10px);
+} 
+

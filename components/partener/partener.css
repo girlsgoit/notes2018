@@ -23,6 +23,12 @@
 .partner img{
 	height:120px;
 	width:120px;
+	transition: transform .3s ease;
+
+}
+
+.partner img:hover {
+	transform:scale(1.1);
 }
 
 
