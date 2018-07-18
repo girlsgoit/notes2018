@@ -1,22 +1,20 @@
-function handleLoginResponse(data, status, infAditionala) {
-    if (infAditionala.status === 200) {
+function handleLoginResponse(response) {
+    const data = response.responseJSON;
+
+    if (response.status === 200) {
+        localStorage.setItem('authUser', JSON.stringify(data));
         $(location).attr('href', 'dashboard.html');
+    } else {
+        console.log(data.message);
     }
+
 }
 
 function login(text, password) {
     let user = {
-        text: text,
+        username: text,
         password: password
     };
 
-    const requestObject = {
-        url: 'https://192.168.2.13:3000/login',
-        type: 'PUT',
-        succes: handleLoginResponse,
-        contentType: 'application/json',
-        data: JSON.stringify(user)
-    };
-
-    $.ajax(requestObject);
+    API.post('auth/login/', user, handleLoginResponse);
 }

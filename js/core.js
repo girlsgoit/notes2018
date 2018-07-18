@@ -1,5 +1,44 @@
-const config = {
-    ROUTE_URL: '192.168.2.13:3000',
+const API = {
+    BASE_URL: '//localhost:8000/',
+
+    get: function (path, completeCallback) {
+        return $.ajax({
+            url: this.BASE_URL + path,
+            complete: completeCallback,
+            type: 'GET',
+            contentType: 'application/json',
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+        })
+    },
+    post: function (path, data, completeCallback) {
+        $.ajax({
+            url: this.BASE_URL + path,
+            data: JSON.stringify(data),
+            complete: completeCallback,
+            type: 'POST',
+            contentType: 'application/json',
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+        });
+    },
+    put: function (path, data, completeCallback) {
+        $.ajax({
+            url: this.BASE_URL + path,
+            data: JSON.stringify(data),
+            complete: completeCallback,
+            type: 'PUT',
+            contentType: 'application/json',
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+        });
+    }
 };
 
 const Cookie = {

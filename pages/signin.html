@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-	<link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
-	<link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
 
-	<link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="account">
-	<div class="container">
-		<div class="account-content">
-			<img src="../img/LogoNormal.svg">
-			<form action="#">
-				<div class="inputs-login">
-					<input type="text"  placeholder="Email" id="email" required>
-					<input type="password" placeholder="Password" id="password" required>
-				</div>
-				<input type="submit" value="Login" class="button" id="submit">
-				<a href="#">Register</a>
-			</form>
-		</div>
-	</div>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="../mockups/js/login-controller.js"></script>
-    <script src="../mockups/js/login-view.js"></script>
-	
+<div class="container">
+  <div class="account-content">
+    <img src="../img/LogoNormal.svg">
+    <form>
+      <div class="inputs-login">
+        <input type="text" placeholder="Email" id="email" required>
+        <input type="password" placeholder="Password" id="password" required>
+      </div>
+      <input type="submit" value="Login" class="button" id="submit">
+      <a href="signup.html">Register</a>
+    </form>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="../js/core.js"></script>
+<script src="../js/login-controller.js"></script>
+<script src="../js/login-view.js"></script>
+
 </body>
 </html>
