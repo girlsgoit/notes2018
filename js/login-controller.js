@@ -3,7 +3,7 @@ function handleLoginResponse(response) {
     console.log(response);
 
     if (response.status === 200) {
-        localStorage.setItem('authUser', JSON.stringify(data));
+        User.saveUser(data);
         $(location).attr('href', 'dashboard.html');
     } else {
         const errorField = $('.validation-error');
