@@ -46,10 +46,13 @@ function splitList(content) {
 }
 
 function removeNote(index) {
-    removeNote(notes[index].id);
+    console.log('remove note occured');
+    window.event.stopPropagation();
     notes.splice(index, 1);
+    removeById(note[index].id);
     //redesenam elementele
     populatePage();
+    window.event.preventDefault();
 }
 
 //note add control
