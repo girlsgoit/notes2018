@@ -1,5 +1,5 @@
 const API = {
-    BASE_URL: '//localhost:8000/',
+    BASE_URL: 'https://notes-api.girlsgoit.org/',
 
     get: function (path, completeCallback) {
         return $.ajax({
@@ -75,7 +75,9 @@ const AJAX = {
     setupAuthentication: function () {
         $.ajaxSetup({
             beforeSend: function (xhr, settings) {
-                xhr.setRequestHeader('Authorization', `Token ${Auth.getToken()}`);
+                if (Auth.authentication) {
+                    xhr.setRequestHeader('Authorization', `Token ${Auth.getToken()}`);
+                }
             }
         });
     }
@@ -84,8 +86,8 @@ const AJAX = {
 const Auth = {
     AUTH_KEY: 'authentication',
     authentication: null,
-    saveAuthentication: (user) => {
-        localStorage.setItem(this.AUTH_KEY, JSON.stringify(user));
+    saveAuthentication: function (auth) {
+        localStorage.setItem(this.AUTH_KEY, JSON.stringify(auth));
     },
     loadAuthentication: function () {
         this.authentication = JSON.parse(localStorage.getItem(this.AUTH_KEY));
@@ -104,7 +106,7 @@ const Auth = {
 const HeaderControls = {
     fillName: function () {
         if (Auth.authentication) {
-            let user = Auth.authentication.getUser();
+            let user = Auth.getUser();
             $('#full-name').text(`${user.firstName} ${user.lastName}`)
         }
     },
@@ -117,9 +119,15 @@ const HeaderControls = {
             })
         })
     },
+    insertUserStyle: function() {
+        if (Auth.authentication) {
+            $('head').append(`<style>${Auth.getUser().theme}</style>`);
+        }
+    },
     bindAll: function () {
-        HeaderControls.fillName();
-        HeaderControls.bindLogout();
+        this.insertUserStyle();
+        this.fillName();
+        this.bindLogout();
     }
 };
 
@@ -145,7 +153,6 @@ const URL = {
 
 
 // EXECUTE
-
 Auth.loadAuthentication();
 AJAX.setupAuthentication();
 

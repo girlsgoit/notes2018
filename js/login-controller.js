@@ -1,6 +1,6 @@
 function handleLoginResponse(response) {
     const data = response.responseJSON;
-    console.log(data);
+
     if (response.status === 200) {
         Auth.saveAuthentication(data);
         $(location).attr('href', 'dashboard.html');
