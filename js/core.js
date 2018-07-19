@@ -163,7 +163,7 @@ API.get('ping/', (response) => {
     }
 });
 
-// AJAX.setupCsrf();
+AJAX.setupCsrf();
 User.loadUser();
 
 HeaderControls.bindAll();
