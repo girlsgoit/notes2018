@@ -52,9 +52,10 @@ function splitList(content) {
 
 function removeNote(index, event) {
     event.stopPropagation();
-    removeById(notes[index].id);
+    const id = notes[index].id;
     notes.splice(index, 1);
     populatePage();
+    removeById(id);
 }
 
 function goTo(id) {
