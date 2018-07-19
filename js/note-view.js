@@ -50,6 +50,11 @@ API.get(`notes/${URL.getQueryParam('id')}`, (response) => {
 
 // innoieste continutul din pagina
 function refreshNoteElements() {
+
+    if (User.authUser.css) {
+        $('head').append(`<style>${User.authUser.css}</style>`);
+    }
+
     const domNote = $('#note');
     domNote.empty();
 

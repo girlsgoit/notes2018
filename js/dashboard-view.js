@@ -1,9 +1,19 @@
 function populatePage() {
+
+    if (User.authUser.theme) {
+        $('head').append(`<style>${User.authUser.theme}</style>`);
+    }
+
     let element;
     for (let index = 0; index < notes.length; index++) {
         const item = notes[index].note_elements[0];
-        const id = notes[index].id;
-        element = getElementByTag(item);
+
+        if (item) {
+            element = getElementByTag(item);
+        } else {
+            element = '';
+        }
+        
         element = decorateNote(element, index);
         if (index % 2 === 0) {
             $('#col-left').prepend(element);
@@ -14,12 +24,12 @@ function populatePage() {
 }
 
 function decorateNote(elementString, index) {
-    return `<a class="card" href="note.html?id=${notes[index].id}"> ${elementString} 
+    return `<span class="card" onclick="goTo(${notes[index].id})"> ${elementString} 
                 <div class="card-tools">
-					<span class="card-remove" onclick="removeNote(${index})">Remove</span>
+					<span class="card-remove" onclick="removeNote(${index}, event)">Remove</span>
 					<div class="card-date"> ${notes[index].created_date} </div>
 				</div>
-            </a>`;
+            </span>`;
 }
 
 function getElementByTag(item) {
@@ -45,18 +55,16 @@ function splitList(content) {
     return listItems;
 }
 
-function removeNote(index) {
-    removeNote(notes[index].id);
+function removeNote(index, event) {
+    event.stopPropagation();
+    removeById(notes[index].id);
     notes.splice(index, 1);
-    //redesenam elementele
     populatePage();
 }
 
-function handleNoteClick(e){
-    e.stopPropagation();    
+function goTo(id) {
+    URL.redirect(`note.html?id=${id}`);
 }
-
-$('.card').click(handleNoteClick);
 
 //Create Note
 $('#new-note').click(createNote);

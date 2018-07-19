@@ -8,7 +8,7 @@ function manageSave() {
     let confirmPassword = $('#confirmpassword-input').val();
     let customTheme = $('#customtheme-input').val();
 
-    if (!isEmpty(firstName) || !isEmpty(lastName) || !isEmpty(newPassword)) {
+    if (!isEmpty(firstName) || !isEmpty(lastName) || !isEmpty(newPassword) || !isEmpty(customTheme)) {
 
         if (!isEmpty(newPassword)) {
 
@@ -28,16 +28,16 @@ function manageSave() {
             }
         }
 
-        if (isEmpty(firstName)) {
-            firstName = JSON.parse(localStorage.getItem('firstName'));
+        if (isEmpty(firstName) && User.authUser) {
+            firstName = User.authUser.firstName;
         }
 
-        if (isEmpty(lastName)) {
-            lastName = JSON.parse(localStorage.getItem('lastName'));
+        if (isEmpty(lastName) && User.authUser) {
+            lastName = User.authUser.lastName;
         }
 
-        if (isEmpty(customTheme)) {
-            customTheme = JSON.parse(localStorage.getItem('customTheme'));
+        if (isEmpty(customTheme) && User.authUser) {
+            customTheme = User.authUser.customTheme;
         }
 
         modifySettings(firstName, lastName, newPassword, customTheme);
