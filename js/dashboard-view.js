@@ -16,7 +16,7 @@ function populatePage() {
 function decorateNote(elementString, index) {
     return `<a class="card" href="note.html?id=${notes[index].id}"> ${elementString} 
                 <div class="card-tools">
-					<span class="card-remove" onclick="removeNote(${index})"></span>
+					<span class="card-remove" onclick="removeNote(${index})">Remove</span>
 					<div class="card-date"> ${notes[index].created_date} </div>
 				</div>
             </a>`;
