@@ -87,28 +87,28 @@ const Auth = {
     saveAuthentication: (user) => {
         localStorage.setItem(this.AUTH_KEY, JSON.stringify(user));
     },
-    loadAuthentication: () => {
+    loadAuthentication: function () {
         this.authentication = JSON.parse(localStorage.getItem(this.AUTH_KEY));
     },
-    getUser: () => {
-        return authentication.user;
+    getUser: function () {
+        return this.authentication.user;
     },
-    getToken: () => {
-        return authentication.token;
+    getToken: function () {
+        return this.authentication.token;
     },
-    logout: () => {
+    logout: function () {
         localStorage.removeItem(Auth.AUTH_KEY);
     }
 };
 
 const HeaderControls = {
-    fillName: () => {
+    fillName: function () {
         if (Auth.authentication) {
             let user = Auth.authentication.getUser();
             $('#full-name').text(`${user.firstName} ${user.lastName}`)
         }
     },
-    bindLogout: () => {
+    bindLogout: function () {
         $('#logout').on('click', (e) => {
             e.preventDefault();
             API.post('auth/logout', null, (response) => {
@@ -117,14 +117,14 @@ const HeaderControls = {
             })
         })
     },
-    bindAll: () => {
+    bindAll: function () {
         HeaderControls.fillName();
         HeaderControls.bindLogout();
     }
 };
 
 const URL = {
-    getQueryParam: (sParam) => {
+    getQueryParam: function (sParam) {
         let sPageURL = decodeURIComponent(window.location.search.substring(1)),
             sURLVariables = sPageURL.split('&'),
             sParameterName,
@@ -138,7 +138,7 @@ const URL = {
             }
         }
     },
-    redirect: (toUrl) => {
+    redirect: function (toUrl) {
         $(location).attr('href', toUrl);
     }
 };
