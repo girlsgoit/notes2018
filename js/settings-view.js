@@ -1,60 +1,45 @@
+let firstName = $('#firstname-input');
+let lastName = $('#lastname-input');
+let oldPassword = $('#oldpassword-input');
+let newPassword = $('#newpassword-input');
+let confirmPassword = $('#confirmpassword-input');
+let customSettings = $('#customtheme-input');
+
 $('#save-settings').click(manageSave);
+populateInputs();
+
+function populateInputs() {
+        firstName.val(Auth.getUser().firstName);
+        lastName.val(Auth.getUser().lastName);
+        customSettings.val(Auth.getUser().settings);
+}
 
 function manageSave() {
-    let firstName = $('#firstname-input').val();
-    let lastName = $('#lastname-input').val();
-    let oldPassword = $('#oldpassword-input').val();
-    let newPassword = $('#newpassword-input').val();
-    let confirmPassword = $('#confirmpassword-input').val();
-    let customTheme = $('#customtheme-input').val();
 
-    if (!isEmpty(firstName) || !isEmpty(lastName) || !isEmpty(newPassword) || !isEmpty(customTheme)) {
+    if (!isEmpty(firstName.val()) || !isEmpty(lastName.val()) || !isEmpty(newPassword.val()) || !isEmpty(customSettings.val())) {
 
-        if (!isEmpty(newPassword)) {
+        if (!isEmpty(newPassword.val())) {
 
             if (newPassword !== confirmPassword) {
                 console.log("confirm your password");
-                $('#newpassword-input').val('');
-                $('#confirmpassword-input').val('');
+                newPassword.val('');
+                confirmPassword.val('');
                 return;
             }
 
             if (newPassword === oldPassword) {
                 console.log("identical passwords");
-                $('#oldpassword-input').val('');
-                $('#newpassword-input').val('');
-                $('#confirmpassword-input').val('');
+                oldPassword.val('');
+                newPassword.val('');
+                confirmPassword.val('');
                 return;
             }
         }
 
-        if (isEmpty(firstName) && User.authUser) {
-            firstName = User.authUser.firstName;
-        }
-
-        if (isEmpty(lastName) && User.authUser) {
-            lastName = User.authUser.lastName;
-        }
-
-        if (isEmpty(customTheme) && User.authUser) {
-            customTheme = User.authUser.customTheme;
-        }
-
-        modifySettings(firstName, lastName, newPassword, customTheme);
+        modifySettings(firstName.val(), lastName.val(), newPassword.val(), customSettings.val());
     }
 }
 
 function isEmpty(content) {
     return content.trim() === '';
 }
-
-// function redirect (){
-//     $(location).attr("href", "../dashboard.html");
-// }
-// function myFunction(){
-//     putSettings();
-//     redirect();
-
-// }
-
-

@@ -1,5 +1,5 @@
 const API = {
-    BASE_URL: 'https://notes-api.girlsgoit.org/',
+    BASE_URL: '//localhost:8000/',
 
     get: function (path, completeCallback) {
         return $.ajax({
@@ -98,6 +98,9 @@ const Auth = {
     getToken: function () {
         return this.authentication.token;
     },
+    saveUser: function(newUser) {
+        this.authentication.user = newUser;
+    },
     logout: function () {
         localStorage.removeItem(Auth.AUTH_KEY);
     }
@@ -121,7 +124,7 @@ const HeaderControls = {
     },
     insertUserStyle: function() {
         if (Auth.authentication) {
-            $('head').append(`<style>${Auth.getUser().theme}</style>`);
+            $('head').append(`<style>${Auth.getUser().settings}</style>`);
         }
     },
     bindAll: function () {
@@ -148,6 +151,16 @@ const URL = {
     },
     redirect: function (toUrl) {
         $(location).attr('href', toUrl);
+    }
+};
+
+const Text = {
+    sanitize: function(input) {
+        return input
+            .replace(/<script[^>]*?>.*?<\/script>/gi, '')
+            .replace(/<[\/\!]*?[^<>]*?>/gi, '')
+            .replace(/<style[^>]*?>.*?<\/style>/gi, '')
+            .replace(/<![\s\S]*?--[ \t\n\r]*>/gi, '');
     }
 };
 
