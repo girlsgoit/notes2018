@@ -80,7 +80,7 @@ const AJAX = {
     getCsrfToken: function () {
         if (AJAX.csrfToken == null) {
             let token = localStorage.getItem(AJAX.CSRF_KEY);
-            if (token == null) {
+            if (token == null || token === "null") {
                 token = Cookie.get('csrftoken');
                 localStorage.setItem(AJAX.CSRF_KEY, token);
             }
