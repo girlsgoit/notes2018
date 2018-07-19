@@ -1,5 +1,5 @@
 const API = {
-    BASE_URL: '//localhost:3000/',
+    BASE_URL: 'http://192.168.2.13:3000/',
 
     get: function (path, completeCallback) {
         return $.ajax({
@@ -89,10 +89,10 @@ const AJAX = {
 const User = {
     LS_KEY: 'authUser',
     authUser: null,
-    saveUser: (user) => {
+    saveUser: function(user) {
         localStorage.setItem(this.LS_KEY, JSON.stringify(user));
     },
-    loadUser: () => {
+    loadUser: function() {
         this.authUser = JSON.parse(localStorage.getItem(this.LS_KEY));
     },
 };

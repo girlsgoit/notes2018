@@ -1,4 +1,9 @@
 function populatePage() {
+
+    if (User.authUser.theme) {
+        $('head').append(`<style>${User.authUser.theme}</style>`);
+    }
+
     let element;
     for (let index = 0; index < notes.length; index++) {
         const item = notes[index].note_elements[0];

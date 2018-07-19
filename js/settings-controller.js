@@ -8,6 +8,7 @@ function modifySettings(first_name, last_name, password, css) {
         theme: css
     };
 
+    User.saveUser(modifyObject);
     const id = URL.getQueryParam('id');
     API.put(`users/${id}/`, JSON.stringify(modifyObject), handleResponse)
 }
@@ -15,9 +16,9 @@ function modifySettings(first_name, last_name, password, css) {
 function handleResponse(response) {
     if (response.status === 200) {
         const user = response.responseJSON;
-
-        localStorage.setItem('firstName', user.firstName);
-        localStorage.setItem('lastName', user.lastName);
-        localStorage.setItem('css', user.settings);
+        User.saveUser(user);
+    } else {
+        console.log('Could not save settings');
+        console.log(response.responseJSON);
     }
 }
