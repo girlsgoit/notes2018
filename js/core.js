@@ -72,8 +72,26 @@ const Cookie = {
 };
 
 const AJAX = {
+    CSRF_KEY: 'csrf',
+    csrfToken: null,
     csrfSafeMethod: function (method) {
         return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    },
+    getCsrfToken: function () {
+      if (AJAX.csrfToken) {
+          return AJAX.csrfToken;
+      } else {
+          let token = localStorage.getItem(AJAX.CSRF_KEY);
+          if (token) {
+              AJAX.csrfToken = token;
+              return token;
+          } else {
+              token = Cookie.get('csrftoken');
+              localStorage.setItem(AJAX.CSRF_KEY, token)
+              AJAX.csrfToken = token;
+              return token;
+          }
+      }
     },
     setupCsrf: function () {
         $.ajaxSetup({
@@ -95,6 +113,10 @@ const User = {
     loadUser: () => {
         this.authUser = JSON.parse(localStorage.getItem(this.LS_KEY));
     },
+    logout: () => {
+        localStorage.removeItem(User.LS_KEY);
+        localStorage.removeItem(AJAX.CSRF_KEY);
+    }
 };
 
 const HeaderControls = {
@@ -107,6 +129,7 @@ const HeaderControls = {
         $('#logout').on('click', (e) => {
             e.preventDefault();
             API.post('auth/logout', null, (response) => {
+                User.logout();
                 URL.redirect('/pages/signin.html');
             })
         })
