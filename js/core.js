@@ -38,6 +38,18 @@ const API = {
             },
             crossDomain: true,
         });
+    },
+    delete: function (path, completeCallback) {
+        $.ajax({
+            url: this.BASE_URL + path,
+            complete: completeCallback,
+            type: 'DELETE',
+            contentType: 'application/json',
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+        });
     }
 };
 
@@ -95,19 +107,19 @@ const HeaderControls = {
         $('#logout').on('click', (e) => {
             e.preventDefault();
             API.post('auth/logout', null, (response) => {
-                $(location).attr('href', 'signin.html');
+                URL.redirect('/pages/signin.html');
             })
         })
     },
     bindAll: () => {
-        this.fillName();
-        this.bindLogout();
+        HeaderControls.fillName();
+        HeaderControls.bindLogout();
     }
 };
 
 const URL = {
     getQueryParam: (sParam) => {
-        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        let sPageURL = decodeURIComponent(window.location.search.substring(1)),
             sURLVariables = sPageURL.split('&'),
             sParameterName,
             i;
@@ -119,6 +131,9 @@ const URL = {
                 return sParameterName[1] === undefined ? true : sParameterName[1];
             }
         }
+    },
+    redirect: (toUrl) => {
+        $(location).attr('href', toUrl);
     }
 };
 

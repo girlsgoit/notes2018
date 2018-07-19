@@ -3,7 +3,7 @@ function handleLoginResponse(response, status, data1) {
     const data = response.responseJSON;
 
     if (response.status === 200) {
-        localStorage.setItem('authUser', JSON.stringify(data));
+        User.saveUser(data);
         $(location).attr('href', 'dashboard.html');
     } else {
         console.log(data);
