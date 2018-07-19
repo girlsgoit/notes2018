@@ -166,7 +166,7 @@ API.get('ping/', (response) => {
 });
 
 $.ajax({
-    url: this.BASE_URL + 'ping/',
+    url: API.BASE_URL + 'ping/',
     success: (data, status, xhr) => {
         console.log(data);
         console.log(status);
@@ -179,7 +179,7 @@ $.ajax({
         withCredentials: true
     },
     crossDomain: true,
-})
+});
 
 AJAX.setupCsrf();
 User.loadUser();
