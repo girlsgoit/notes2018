@@ -1,10 +1,6 @@
+$('#save-settings').click(manageSave);
 
-
-$('#save-settings').click(putSettings);
-
-
-
-function putSettings() {
+function manageSave() {
     let firstName = $('#firstname-input').val();
     let lastName = $('#lastname-input').val();
     let oldPassword = $('#oldpassword-input').val();
@@ -12,24 +8,46 @@ function putSettings() {
     let confirmPassword = $('#confirmpassword-input').val();
     let customTheme = $('#customtheme-input').val();
 
-    if (newPassword.length != 0) {
-        if (newPassword === confirmPassword) {
-            if (oldPassword != newPassword) {
-                modifySettings(firstName, lastName, newPassword, customTheme);
-            } else {
+    if (!isEmpty(firstName) || !isEmpty(lastName) || !isEmpty(newPassword)) {
+
+        if (!isEmpty(newPassword)) {
+
+            if (newPassword !== confirmPassword) {
+                console.log("confirm your password");
+                $('#newpassword-input').val('');
+                $('#confirmpassword-input').val('');
+                return;
+            }
+
+            if (newPassword === oldPassword) {
                 console.log("identical passwords");
                 $('#oldpassword-input').val('');
                 $('#newpassword-input').val('');
                 $('#confirmpassword-input').val('');
+                return;
             }
-        } else {
-            console.log("confirm your password");
-            $('#newpassword-input').val('');
-            $('#confirmpassword-input').val('');
         }
-    } 
 
+        if (isEmpty(firstName)) {
+            firstName = JSON.parse(localStorage.getItem('firstName'));
+        }
+
+        if (isEmpty(lastName)) {
+            lastName = JSON.parse(localStorage.getItem('lastName'));
+        }
+
+        if (isEmpty(customTheme)) {
+            customTheme = JSON.parse(localStorage.getItem('customTheme'));
+        }
+
+        modifySettings(firstName, lastName, newPassword, customTheme);
+    }
 }
+
+function isEmpty(content) {
+    return content.trim() === '';
+}
+
 // function redirect (){
 //     $(location).attr("href", "../dashboard.html");
 // }
