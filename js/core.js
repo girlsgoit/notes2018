@@ -87,7 +87,7 @@ const AJAX = {
                 return token;
             } else {
                 token = Cookie.get('csrftoken');
-                localStorage.setItem(AJAX.CSRF_KEY, token)
+                localStorage.setItem(AJAX.CSRF_KEY, token);
                 AJAX.csrfToken = token;
                 return token;
             }
