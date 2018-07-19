@@ -139,6 +139,11 @@ const URL = {
 
 
 // EXECUTE
+API.get('ping/', (response) => {
+    if (response.status !== 200) {
+        console.log(response);
+    }
+});
 
 AJAX.setupCsrf();
 User.loadUser();
