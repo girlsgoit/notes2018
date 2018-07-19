@@ -78,20 +78,15 @@ const AJAX = {
         return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
     },
     getCsrfToken: function () {
-        if (AJAX.csrfToken) {
-            return AJAX.csrfToken;
-        } else {
+        if (AJAX.csrfToken == null) {
             let token = localStorage.getItem(AJAX.CSRF_KEY);
-            if (token) {
-                AJAX.csrfToken = token;
-                return token;
-            } else {
+            if (token == null) {
                 token = Cookie.get('csrftoken');
                 localStorage.setItem(AJAX.CSRF_KEY, token);
-                AJAX.csrfToken = token;
-                return token;
             }
+            AJAX.csrfToken = token;
         }
+        return AJAX.csrfToken;
     },
     setupCsrf: function () {
         $.ajaxSetup({
