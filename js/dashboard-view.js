@@ -19,12 +19,12 @@ function populatePage() {
 }
 
 function decorateNote(elementString, index) {
-    return `<a class="card" href="note.html?id=${notes[index].id}"> ${elementString} 
+    return `<span class="card" onclick="goTo(${notes[index].id})"> ${elementString} 
                 <div class="card-tools">
-					<span class="card-remove" onclick="removeNote(${index})">Remove</span>
+					<span class="card-remove" onclick="removeNote(${index}, event)">Remove</span>
 					<div class="card-date"> ${notes[index].created_date} </div>
 				</div>
-            </a>`;
+            </span>`;
 }
 
 function getElementByTag(item) {
@@ -50,21 +50,16 @@ function splitList(content) {
     return listItems;
 }
 
-function removeNote(index) {
-    console.log('remove note occured');
-    window.event.stopPropagation();
+function removeNote(index, event) {
+    event.stopPropagation();
+    removeById(notes[index].id);
     notes.splice(index, 1);
-    removeById(note[index].id);
-    //redesenam elementele
     populatePage();
-    window.event.preventDefault();
 }
 
-function handleNoteClick(e){
-    e.stopPropagation();    
+function goTo(id) {
+    URL.redirect(`note.html?id=${id}`);
 }
-
-$('.card').click(handleNoteClick);
 
 //Create Note
 $('#new-note').click(createNote);
