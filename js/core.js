@@ -160,9 +160,26 @@ const URL = {
 // EXECUTE
 API.get('ping/', (response) => {
     if (response.status !== 200) {
+        console.log(response.getResponseHeader('set-cookie'));
         console.log(response);
     }
 });
+
+$.ajax({
+    url: this.BASE_URL + 'ping/',
+    success: (data, status, xhr) => {
+        console.log(data);
+        console.log(status);
+        console.log(xhr);
+        console.log(xhr.getAllResponseHeaders());
+    },
+    type: 'GET',
+    contentType: 'application/json',
+    xhrFields: {
+        withCredentials: true
+    },
+    crossDomain: true,
+})
 
 AJAX.setupCsrf();
 User.loadUser();
