@@ -92,6 +92,7 @@ const AJAX = {
         $.ajaxSetup({
             beforeSend: function (xhr, settings) {
                 if (!AJAX.csrfSafeMethod(settings.type)) {
+                    console.log(xhr.cookie);
                     xhr.setRequestHeader("X-CSRFToken", AJAX.getCsrfToken());
                 }
             }
