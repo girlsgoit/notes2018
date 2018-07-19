@@ -5,6 +5,8 @@ function modifySettings(first_name, last_name, password, css) {
     authUser.password = password;
     authUser.settings = css;
 
+    Auth.saveUser(authUser);
+
     const id = Auth.getUser().id;
     HeaderControls.insertUserStyle();
     API.put(`users/${id}/`, JSON.stringify(authUser), handleResponse)

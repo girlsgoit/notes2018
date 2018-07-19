@@ -100,6 +100,7 @@ const Auth = {
     },
     saveUser: function(newUser) {
         this.authentication.user = newUser;
+        localStorage.setItem(this.AUTH_KEY, JSON.stringify(this.authentication));
     },
     logout: function () {
         localStorage.removeItem(Auth.AUTH_KEY);
@@ -114,11 +115,11 @@ const HeaderControls = {
         }
     },
     bindLogout: function () {
-        $('#logout').on('click', (e) => {
+        $('#log-out').on('click', (e) => {
             e.preventDefault();
             API.post('auth/logout', null, (response) => {
                 Auth.logout();
-                URL.redirect('/pages/signin.html');
+                URL.redirect('signin.html');
             })
         })
     },
