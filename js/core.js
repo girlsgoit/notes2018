@@ -78,26 +78,26 @@ const AJAX = {
         return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
     },
     getCsrfToken: function () {
-      if (AJAX.csrfToken) {
-          return AJAX.csrfToken;
-      } else {
-          let token = localStorage.getItem(AJAX.CSRF_KEY);
-          if (token) {
-              AJAX.csrfToken = token;
-              return token;
-          } else {
-              token = Cookie.get('csrftoken');
-              localStorage.setItem(AJAX.CSRF_KEY, token)
-              AJAX.csrfToken = token;
-              return token;
-          }
-      }
+        if (AJAX.csrfToken) {
+            return AJAX.csrfToken;
+        } else {
+            let token = localStorage.getItem(AJAX.CSRF_KEY);
+            if (token) {
+                AJAX.csrfToken = token;
+                return token;
+            } else {
+                token = Cookie.get('csrftoken');
+                localStorage.setItem(AJAX.CSRF_KEY, token)
+                AJAX.csrfToken = token;
+                return token;
+            }
+        }
     },
     setupCsrf: function () {
         $.ajaxSetup({
             beforeSend: function (xhr, settings) {
                 if (!AJAX.csrfSafeMethod(settings.type)) {
-                    xhr.setRequestHeader("X-CSRFToken", Cookie.get('csrftoken'));
+                    xhr.setRequestHeader("X-CSRFToken", AJAX.getCsrfToken());
                 }
             }
         });
