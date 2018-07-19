@@ -2,8 +2,13 @@ function populatePage() {
     let element;
     for (let index = 0; index < notes.length; index++) {
         const item = notes[index].note_elements[0];
-        const id = notes[index].id;
-        element = getElementByTag(item);
+
+        if (item) {
+            element = getElementByTag(item);
+        } else {
+            element = '';
+        }
+        
         element = decorateNote(element, index);
         if (index % 2 === 0) {
             $('#col-left').prepend(element);
