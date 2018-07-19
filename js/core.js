@@ -1,5 +1,5 @@
 const API = {
-    BASE_URL: 'https://notes-api.girlsgoit.org',
+    BASE_URL: 'https://notes-api.girlsgoit.org/',
 
     get: function (path, completeCallback) {
         return $.ajax({
