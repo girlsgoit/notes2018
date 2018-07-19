@@ -55,10 +55,11 @@ function removeNote(index) {
     window.event.preventDefault();
 }
 
-//note add control
 function handleNoteClick(e){
-    e.stopPropagation();
-    
+    e.stopPropagation();    
 }
 
 $('.card').click(handleNoteClick);
+
+//Create Note
+$('#new-note').click(createNote);
