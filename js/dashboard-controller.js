@@ -25,6 +25,7 @@ function handleRemoveNote(response) {
     }
 }
 
+
 //Create Note
 function createNote() {
     API.post('notes/', { "note_elements": [] }, (response) => {
