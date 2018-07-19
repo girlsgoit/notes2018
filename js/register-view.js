@@ -1,6 +1,8 @@
 $('#register').click(readInput);
 
-function readInput() {
+function readInput(e) {
+
+    e.preventDefault();
 
     let username = $('#username').val();
     let firstname = $('#first-name').val();
@@ -18,7 +20,6 @@ function readInput() {
 $('#username').focus(handleFocus);
 
 function handleFocus() {
-    console.log('lucreaza');
     const errorField = $('.validation-error');
     errorField.removeClass('visible');
     errorField.empty();
