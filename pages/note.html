@@ -2,101 +2,93 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Note</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+  <meta charset="UTF-8">
+  <title>Note</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
 
-    <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="row">
-                <div class="column">
-                    <a href="#">
-                        marc graciov
-                    </a>
-                </div>
-                <div class="column">
-                    <a href="#" class="logo">
-                        <img src="../img/LogoNormal.svg">
-                    </a>
-                </div>
-                <div class="column">
-                    <nav>
-                        <ul class=navbar>
-                            <li>
-                                <a href="#">
-                                    settings
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    help
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    sign up
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div class="container ">
-        <div class="note-wrapper">
-            <div id="first-cursor" class="note-cursor note-cursor-first js-note-cursor"></div>
-            <article id="note" class="note"></article>
-            <div class="note-tools">
-                <div class="note-delete">
-                    <a href="#" class="button">Delete this note</a>
-                </div>
-                <div id="note-add" class="note-add">
-                    <textarea name="" resize="no-resize" id="add-element-content" placeholder="Write your text here"></textarea>
-                    <button class="h1" onclick="insertElement('h1')">h1</button>
-                    <button class="h2" onclick="insertElement('h2')">h2</button>
-                    <button class="h3" onclick="insertElement('h3')">h3</button>
-                    <button class="img" onclick="insertElement('img')">img</button>
-                    <button class="p" onclick="insertElement('p')"> p</button>
-                    <button class="ul" onclick="insertElement('ul')">ul</button>
-                    <button class="link" onclick="insertElement('a')">link</button>
-                </div>
-            </div>
-        </div>
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="column">
+        <a id="full-name" href="settings.html"></a>
+      </div>
+      <div class="column">
+        <a href="dashboard.html" class="logo">
+          <img src="../img/LogoNormal.svg">
+        </a>
+      </div>
+      <div class="column">
+        <nav>
+          <ul class=navbar>
+            <li>
+              <a href="settings.html">
+                settings
+              </a>
+            </li>
+            <li>
+              <a href="help.html">
+                help
+              </a>
+            </li>
+            <li>
+              <a id="logout" href="#">
+                logout
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
-    <footer class="footer">
-        <div class="container">
-            <p>
-                This web application was developed during
-                <a href="https://www.google.com">GirlsGoIT Summer STEM Camp </a>
-            </p>
-            <ul>
-                <li>
-                    <a href="#">Facebook</a>
-                </li>
-                <li>
-                    <a href="#">YouTube</a>
-                </li>
-                <li>
-                    <a href="#">Instagram</a>
-                </li>
-            </ul>
-        </div>
+  </div>
+</header>
+<div class="container ">
+  <div class="note-wrapper">
+    <div id="first-cursor" class="note-cursor note-cursor-first js-note-cursor"></div>
+    <article id="note" class="note"></article>
+    <div class="note-tools">
+      <div class="note-delete">
+        <a id="delete-note" href="#" class="button">Delete this note</a>
+      </div>
+      <div id="note-add" class="note-add">
+        <textarea name="" resize="no-resize" id="add-element-content" placeholder="Write your text here"></textarea>
+        <button class="h1" onclick="insertElement('h1')">h1</button>
+        <button class="h2" onclick="insertElement('h2')">h2</button>
+        <button class="h3" onclick="insertElement('h3')">h3</button>
+        <button class="img" onclick="insertElement('img')">img</button>
+        <button class="p" onclick="insertElement('p')"> p</button>
+        <button class="ul" onclick="insertElement('ul')">ul</button>
+        <button class="link" onclick="insertElement('a')">link</button>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p>
+      This web application was developed during
+      <a href="http://girlsgoit.org/programme/summer-stem-programme.html">GirlsGoIT Summer STEM Camp </a>
+    </p>
+    <ul>
+      <li><a href="https://www.facebook.com/GirlsGoIT/">Facebook</a></li>
+      <li><a href="https://www.youtube.com/channel/UCixmUgWhEp5Sj7kpzc6ZOTg">YouTube</a></li>
+      <li><a href="https://www.instagram.com/girlsgoit/">Instagram</a></li>
+    </ul>
+  </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="../js/note-controller.js"></script>
-        <script src="../js/note-view.js"></script>
-
-    </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="../js/core.js"></script>
+  <script src="../js/note-view.js"></script>
+</footer>
 </body>
 
 </html>
