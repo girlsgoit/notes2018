@@ -1,5 +1,5 @@
 const API = {
-    BASE_URL: '//localhost:8000/',
+    BASE_URL: 'https://ggit-notes-api.azurewebsites.net/',
 
     get: function (path, completeCallback) {
         return $.ajax({
