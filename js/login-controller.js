@@ -1,12 +1,14 @@
-function handleLoginResponse(response, status, data1) {
-    console.log(data1);
+function handleLoginResponse(response) {
     const data = response.responseJSON;
+    console.log(response);
 
     if (response.status === 200) {
         localStorage.setItem('authUser', JSON.stringify(data));
         $(location).attr('href', 'dashboard.html');
     } else {
-        console.log(data);
+        const errorField = $('.validation-error');
+        errorField.addClass('visible');
+        errorField.text('Incorrect username or password');
     }
 }
 
