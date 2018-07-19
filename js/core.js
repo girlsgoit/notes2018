@@ -1,5 +1,5 @@
 const API = {
-    BASE_URL: 'https://notes-api.girlsgoit.org/',
+    BASE_URL: '//localhost:8000/',
 
     get: function (path, completeCallback) {
         return $.ajax({
@@ -72,60 +72,47 @@ const Cookie = {
 };
 
 const AJAX = {
-    CSRF_KEY: 'csrf',
-    csrfToken: null,
-    csrfSafeMethod: function (method) {
-        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-    },
-    getCsrfToken: function () {
-        if (AJAX.csrfToken == null) {
-            let token = localStorage.getItem(AJAX.CSRF_KEY);
-            if (token == null || token === "null") {
-                token = Cookie.get('csrftoken');
-                localStorage.setItem(AJAX.CSRF_KEY, token);
-            }
-            AJAX.csrfToken = token;
-        }
-        return AJAX.csrfToken;
-    },
-    setupCsrf: function () {
+    setupAuthentication: function () {
         $.ajaxSetup({
             beforeSend: function (xhr, settings) {
-                if (!AJAX.csrfSafeMethod(settings.type)) {
-                    console.log(xhr.cookie);
-                    xhr.setRequestHeader("X-CSRFToken", AJAX.getCsrfToken());
-                }
+                xhr.setRequestHeader('Authorization', `Token ${Auth.getToken()}`);
             }
         });
     }
 };
 
-const User = {
-    LS_KEY: 'authUser',
-    authUser: null,
-    saveUser: (user) => {
-        localStorage.setItem(this.LS_KEY, JSON.stringify(user));
+const Auth = {
+    AUTH_KEY: 'authentication',
+    authentication: null,
+    saveAuthentication: (user) => {
+        localStorage.setItem(this.AUTH_KEY, JSON.stringify(user));
     },
-    loadUser: () => {
-        this.authUser = JSON.parse(localStorage.getItem(this.LS_KEY));
+    loadAuthentication: () => {
+        this.authentication = JSON.parse(localStorage.getItem(this.AUTH_KEY));
+    },
+    getUser: () => {
+        return authentication.user;
+    },
+    getToken: () => {
+        return authentication.token;
     },
     logout: () => {
-        localStorage.removeItem(User.LS_KEY);
-        localStorage.removeItem(AJAX.CSRF_KEY);
+        localStorage.removeItem(Auth.AUTH_KEY);
     }
 };
 
 const HeaderControls = {
     fillName: () => {
-        if (User.authUser) {
-            $('#full-name').text(`${User.authUser.firstName} ${User.authUser.lastName}`)
+        if (Auth.authentication) {
+            let user = Auth.authentication.getUser();
+            $('#full-name').text(`${user.firstName} ${user.lastName}`)
         }
     },
     bindLogout: () => {
         $('#logout').on('click', (e) => {
             e.preventDefault();
             API.post('auth/logout', null, (response) => {
-                User.logout();
+                Auth.logout();
                 URL.redirect('/pages/signin.html');
             })
         })
@@ -158,30 +145,8 @@ const URL = {
 
 
 // EXECUTE
-API.get('ping/', (response) => {
-    if (response.status !== 200) {
-        console.log(response.getResponseHeader('set-cookie'));
-        console.log(response);
-    }
-});
 
-$.ajax({
-    url: API.BASE_URL + 'ping/',
-    success: (data, status, xhr) => {
-        console.log(data);
-        console.log(status);
-        console.log(xhr);
-        console.log(xhr.getAllResponseHeaders());
-    },
-    type: 'GET',
-    contentType: 'application/json',
-    xhrFields: {
-        withCredentials: true
-    },
-    crossDomain: true,
-});
-
-AJAX.setupCsrf();
-User.loadUser();
+Auth.loadAuthentication();
+AJAX.setupAuthentication();
 
 HeaderControls.bindAll();

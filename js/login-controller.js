@@ -1,9 +1,8 @@
 function handleLoginResponse(response) {
     const data = response.responseJSON;
-    console.log(response);
-
+    console.log(data);
     if (response.status === 200) {
-        User.saveUser(data);
+        Auth.saveAuthentication(data);
         $(location).attr('href', 'dashboard.html');
     } else {
         const errorField = $('.validation-error');
@@ -18,5 +17,5 @@ function login(text, password) {
         password: password
     };
 
-    API.post('auth/login/', user, handleLoginResponse);
+    API.post('api-token-auth/', user, handleLoginResponse);
 }
