@@ -4,7 +4,7 @@ let notes = [];
 function handleResponse(response) {
     if (response.status === 200) {
         notes = response.responseJSON;
-        populatePage();
+        populatePage();q
     } else {
         console.log(response.responseJSON)
     }
